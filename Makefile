@@ -1,6 +1,6 @@
 # Define variables
 IMAGE_NAME = glue-spark-demo
-CONTAINER_NAME = glue_spark_submit
+CONTAINER_NAME = glue_spark_demo
 
 # Build the Docker image
 build:
@@ -17,16 +17,17 @@ run:
 		--name $(CONTAINER_NAME) \
 		$(IMAGE_NAME)
 
+# Doesn't work
 # Open an interactive shell in the container
-shell:
-	docker run -it \
-		-v $(PWD):/home/glue_user/workspace/ \
-		-e DISABLE_SSL=true \
-		--rm \
-		-p 4040:4040 \
-		-p 18080:18080 \
-		--name $(CONTAINER_NAME) \
-		$(IMAGE_NAME) /bin/sh
+#shell:
+#    docker run -it \
+#        -v $(PWD):/home/glue_user/workspace/ \
+#        -e DISABLE_SSL=true \
+#        --rm \
+#        -p 4040:4040 \
+#        -p 18080:18080 \
+#        --name $(CONTAINER_NAME) \
+#        $(IMAGE_NAME) /bin/bash
 
 # Clean up any dangling images
 clean:
