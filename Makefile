@@ -11,6 +11,10 @@ build:
 ingest:
 	docker run $(DOCKER_RUN_OPTS) $(IMAGE_NAME) spark-submit /home/glue_user/workspace/ingest.py
 
+# Run the data quality check script in the Docker container
+quality_check:
+	docker run $(DOCKER_RUN_OPTS) $(IMAGE_NAME) spark-submit /home/glue_user/workspace/quality_check.py
+
 # Run the aggregation script in the Docker container
 aggregate:
 	docker run $(DOCKER_RUN_OPTS) $(IMAGE_NAME) spark-submit /home/glue_user/workspace/aggregate.py
@@ -29,4 +33,3 @@ clean:
 
 # Combine build and ingestion run in a single command
 all: build ingest
-

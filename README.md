@@ -4,67 +4,38 @@ This project provides a Dockerized setup for data ingestion and SQL-like aggrega
 
 ## Project Structure
 
-[ingest.py](ingest.py): Ingests data from CSV files, partitions inventory by category and orders by date, and saves them as Parquet files.
-aggregate.py: Performs aggregation using PySpark DataFrame API.
-aggregate_sql.py: Performs aggregation using Spark SQL for a SQL-like experience.
-Makefile: Contains commands for building and running the Docker container with various tasks.
-Prerequisites
-Docker: Ensure Docker is installed on your machine.
-Setup Instructions
-Clone the Repository: bash git clone <repository-url> cd <repository-directory>
+NOTE: this demo project is intentionally flat, I would create `src/` and `csv/` if there were more files. 
 
-Add Data Files: Place your orders.csv and inventory.csv files in the project root directory.
+* [ingest.py](ingest.py): Ingests data from CSV files, partitions inventory by category and orders by date, and saves them as Parquet files.
+* [quality_check.py](quality_check.py): Runs simple quality checks on the data. In real world I would look into [Great Expectations](https://greatexpectations.io/).
+* [aggregate.py](aggregate.py): Performs aggregation using PySpark DataFrame API.
+* [aggregate_sql.py](aggregate_sql.py): Performs aggregation using Spark SQL for a SQL-like experience, your analysts will love that!
+* [Makefile](Makefile): Contains commands for building and running the Docker container with various tasks.
 
-Makefile Commands
-Build the Docker Image
-To build the Docker image:
+## Prerequisites
 
-go
-Copy code
+* Docker: Ensure Docker is installed on your machine.
+
+## Setup Instructions
+
+```bash
+git clone git@github.com:tipishev/dema.ai.git
+cd dema.ai
 make build
-Run Data Ingestion
-To ingest the data and save it as partitioned Parquet files:
-
-go
-Copy code
 make ingest
-Run Aggregation with PySpark DataFrame API
-To run aggregation using PySpark DataFrame API:
 
-go
-Copy code
+# run a quality check on the ingested data
+make quality_check
+
+# run PySpark aggregation example
 make aggregate
-Run Aggregation with Spark SQL
-To run aggregation using Spark SQL:
 
-go
-Copy code
+# run SQL-like aggregation example
 make aggregate_sql
-Open an Interactive Shell in the Container
-To open an interactive shell in the container:
 
-go
-Copy code
+# if you fancy the container internals for debugging
 make shell
-Clean Up Docker Image
-To remove the Docker image:
+```
 
-go
-Copy code
-make clean
-Build and Run Ingestion in a Single Step
-To build the Docker image and run the ingestion step in one command:
-
-css
-Copy code
-make all
-Aggregation Outputs
-aggregate.py:
-
-Aggregates orders by date, showing total amount and quantity.
-Aggregates inventory by category, showing total inventory quantity.
-aggregate_sql.py:
-
-Runs SQL queries for similar aggregations.
-License
+## License
 This project is open source and available under the MIT License.

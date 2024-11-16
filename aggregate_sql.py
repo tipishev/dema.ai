@@ -19,7 +19,7 @@ inventory_df.createOrReplaceTempView("inventory")
 
 # SQL query: Total Order Amount and Quantity per Day
 daily_orders_summary = spark.sql("""
-    SELECT 
+    SELECT
         date,
         SUM(amount) AS total_amount,
         SUM(quantity) AS total_quantity
@@ -32,7 +32,7 @@ daily_orders_summary.show()
 
 # SQL query: Total Inventory Quantity per Category
 category_inventory_summary = spark.sql("""
-    SELECT 
+    SELECT
         category,
         SUM(quantity) AS total_inventory_quantity
     FROM inventory
@@ -44,4 +44,3 @@ category_inventory_summary.show()
 
 # Stop the Spark session
 spark.stop()
-

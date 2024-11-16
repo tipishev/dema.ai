@@ -7,7 +7,6 @@ FROM amazon/aws-glue-libs:glue_libs_4.0.0_image_01
 WORKDIR /home/glue_user/workspace
 
 # Copy the PySpark script and data files into the workspace directory
-COPY echo.py /home/glue_user/workspace/echo.py
 COPY orders.csv /home/glue_user/workspace/orders.csv
 COPY inventory.csv /home/glue_user/workspace/inventory.csv
 
