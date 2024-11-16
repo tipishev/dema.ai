@@ -11,6 +11,7 @@ NOTE: this demo project is intentionally flat, I would create `src/` and `csv/` 
 * [aggregate.py](aggregate.py): Performs aggregation using PySpark DataFrame API.
 * [aggregate_sql.py](aggregate_sql.py): Performs aggregation using Spark SQL for a SQL-like experience, your analysts will love that!
 * [Makefile](Makefile): Contains commands for building and running the Docker container with various tasks.
+* [ChatGPT_transcript.txt](ChatGPT_transcript.txt): My conversation with "chat j'ai pété" to get this thing setup.  
 
 ## Prerequisites
 
