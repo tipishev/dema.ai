@@ -6,7 +6,7 @@ This project provides a Dockerized setup for data ingestion and SQL-like aggrega
 
 NOTE: this demo project is intentionally flat, I would create `src/` and `csv/` if there were more files. 
 
-* [ingest.py](ingest.py): Ingests data from CSV files, partitions inventory by category and orders by date, and saves them as Parquet files.
+* [ingest.py](ingest.py): Ingests data from CSV files, partitions inventory by category and orders by date, and saves them as partitioned Parquet files in gitignored `data/` directory.
 * [quality_check.py](quality_check.py): Runs simple quality checks on the data. In real world I would look into [Great Expectations](https://greatexpectations.io/).
 * [aggregate.py](aggregate.py): Performs aggregation using PySpark DataFrame API.
 * [aggregate_sql.py](aggregate_sql.py): Performs aggregation using Spark SQL for a SQL-like experience, your analysts will love that!
