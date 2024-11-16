@@ -16,6 +16,3 @@ ENV DISABLE_SSL=true
 
 # Expose the Spark UI ports for monitoring
 EXPOSE 4040 18080
-
-## Set the default command to run the PySpark script
-CMD ["spark-submit", "/home/glue_user/workspace/echo.py"]
